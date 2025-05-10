@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap");
+@import "tailwindcss";
+@import "./theme.css";
+
+@layer base {
+  body {
+    font-family: "League Spartan", sans-serif;
+    background-color: var(--background);
+    color: var(--primary-text);
+  }
+  html.theme-1 body {
+    color: white;
+  }
+
+  input[type="range"] {
+    -webkit-appearance: none;
+    @apply bg-foreground rounded-full outline-none p-1;
+  }
+
+  /* WebKit (Chrome, Safari) */
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    @apply w-3 h-3 rounded-full bg-key-accent cursor-pointer hover:bg-key-accent-hover;
+  }
+
+  /* Firefox */
+  input[type="range"]::-moz-range-thumb {
+    @apply w-4 h-4 rounded-full bg-key-accent cursor-pointer hover:bg-key-accent-hover;
+  }
+}

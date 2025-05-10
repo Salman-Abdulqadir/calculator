@@ -1,0 +1,100 @@
+:root {
+  /* BACKGROUNDS */
+  --background: hsl(222, 26%, 31%);
+  --foreground: hsl(223, 31%, 20%);
+  --screen: hsl(224, 36%, 15%);
+
+  /* KEYS */
+  --key-primary: hsl(30, 25%, 89%);
+  --key-primary-hover: hsl(27, 48%, 95%);
+  --key-primary-shadow: hsl(28, 16%, 65%);
+
+  --key-secondary: hsl(225, 21%, 49%);
+  --key-secondary-hover: hsl(225, 40%, 67%);
+  --key-secondary-shadow: hsl(224, 28%, 35%);
+
+  --key-accent: hsl(6, 63%, 50%);
+  --key-accent-hover: hsl(6, 69%, 58%);
+  --key-accent-shadow: hsl(6, 70%, 34%);
+
+  /* TEXT */
+  --primary-text: hsl(221, 14%, 31%);
+  --secondary-text: white;
+  --accent-text: white;
+}
+
+.theme-2 {
+  /* BACKGROUNDS */
+  --background: hsl(0, 0%, 90%);
+  --foreground: hsl(0, 5%, 81%);
+  --screen: hsl(0, 0%, 93%);
+
+  /* KEYS */
+  --key-primary: hsl(45, 7%, 89%);
+  --key-primary-hover: hsl(40, 16%, 96%);
+  --key-primary-shadow: hsl(35, 11%, 61%);
+
+  --key-secondary: hsl(185, 42%, 37%);
+  --key-secondary-hover: hsl(185, 31%, 46%);
+  --key-secondary-shadow: hsl(185, 58%, 25%);
+
+  --key-accent: hsl(25, 98%, 40%);
+  --key-accent-hover: hsl(25, 69%, 50%);
+  --key-accent-shadow: hsl(25, 99%, 27%);
+
+  /* TEXT */
+  --primary-text: hsl(60, 10%, 19%);
+  --secondary-text: white;
+  --accent-text: white;
+}
+
+.theme-3 {
+  /* BACKGROUNDS */
+  --background: hsl(268, 75%, 9%);
+  --foreground: hsl(268, 71%, 12%);
+  --screen: hsl(268, 71%, 12%);
+
+  /* KEYS */
+  --key-primary: hsl(281, 89%, 26%);
+  --key-primary-hover: hsl(281, 62%, 40%);
+  --key-primary-shadow: hsl(285, 91%, 52%);
+
+  --key-secondary: hsl(268, 47%, 21%);
+  --key-secondary-hover: hsl(268, 45%, 33%);
+  --key-secondary-shadow: hsl(290, 70%, 36%);
+
+  --key-accent: hsl(176, 100%, 44%);
+  --key-accent-hover: hsl(176, 68%, 58%);
+  --key-accent-shadow: hsl(177, 92%, 70%);
+
+  /* TEXT */
+  --primary-text: hsl(52, 100%, 62%);
+  --secondary-text: white;
+  --accent-text: hsl(198, 20%, 13%);
+}
+
+/* LINKING VARS TO TAILWIND */
+@theme inline {
+  /* BACKGROUNDS */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-screen: var(--screen);
+
+  /* KEYS */
+  --color-key-primary: var(--key-primary);
+  --color-key-primary-hover: var(--key-primary-hover);
+  --color-key-primary-shadow: var(--key-primary-shadow);
+
+  --color-key-secondary: var(--key-secondary);
+  --color-key-secondary-hover: var(--key-secondary-hover);
+  --color-key-secondary-shadow: var(--key-secondary-shadow);
+
+  --color-key-accent: var(--key-accent);
+  --color-key-accent-hover: var(--key-accent-hover);
+  --color-key-accent-shadow: var(--key-accent-shadow);
+
+  /* TEXT */
+  --color-primary-text: var(--primary-text);
+  --color-secondary-text: var(--secondary-text);
+  --color-accent-text: var(--accent-text);
+}
