@@ -27,4 +27,8 @@
   input[type="range"]::-moz-range-thumb {
     @apply w-4 h-4 rounded-full bg-key-accent cursor-pointer hover:bg-key-accent-hover;
   }
+
+  .pressed {
+    @apply scale-90 transition duration-300;
+  }
 }

@@ -1,7 +1,6 @@
-import { useEffect } from "react";
 import KeypadButton from "../../../components/keypad-button";
 import { useCalculator } from "../../../store/calculator/calculator";
-import { keyboardClickHandler } from "../helpers";
+import useKeyboard from "../../../hooks/useKeyboard";
 
 const Keyboard = () => {
   const { inputDigit, inputOperator, evaluate, clear, deleteDigit } =
@@ -20,7 +19,12 @@ const Keyboard = () => {
       { label: "7", value: "7" },
       { label: "8", value: "8" },
       { label: "9", value: "9" },
-      { label: "DEL", action: deleteDigit, variant: "secondary" },
+      {
+        label: "DEL",
+        value: "Backspace",
+        action: deleteDigit,
+        variant: "secondary",
+      },
     ],
     [
       { label: "4", value: "4" },
@@ -41,20 +45,14 @@ const Keyboard = () => {
       { label: "x", value: "*" },
     ],
   ];
-
-  useEffect(() => {
-    const eventHandler = (e) =>
-      keyboardClickHandler(e, handleClick, deleteDigit, evaluate, clear);
-    window.addEventListener("keydown", eventHandler);
-    return () => window.removeEventListener("keydown", eventHandler);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  useKeyboard({ handleClick });
   return (
     <div className="grid grid-cols-4 grid-rows-5 gap-4 w-full bg-foreground p-6 rounded-lg">
       {itemsGrid.flat().map(({ label, value, action, variant }) => (
         <KeypadButton
           key={label}
           variant={variant}
+          data-key={value || label}
           onClick={() => {
             if (action) action();
             else handleClick(value);
@@ -64,12 +62,12 @@ const Keyboard = () => {
         </KeypadButton>
       ))}
       <div className="col-span-2">
-        <KeypadButton variant="secondary" onClick={clear}>
+        <KeypadButton variant="secondary" onClick={clear} data-key={"c"}>
           RESET
         </KeypadButton>
       </div>
       <div className="col-span-2">
-        <KeypadButton variant="accent" onClick={evaluate}>
+        <KeypadButton variant="accent" onClick={evaluate} data-key={"Enter"}>
           =
         </KeypadButton>
       </div>
