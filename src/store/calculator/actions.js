@@ -129,10 +129,11 @@ export const deleteDigit = (set, get) => {
   const updatedLastChar = updated?.at(-1);
   set(() => ({
     allOperations: updated || INITIAL_STATE.allOperations,
-    ...(updated && {
-      result: calculate(
-        OPERATORS?.includes(updatedLastChar) ? updated.slice(0, -1) : updated
-      ),
-    }),
+
+    result: updated
+      ? calculate(
+          OPERATORS?.includes(updatedLastChar) ? updated.slice(0, -1) : updated
+        )
+      : INITIAL_STATE.result,
   }));
 };

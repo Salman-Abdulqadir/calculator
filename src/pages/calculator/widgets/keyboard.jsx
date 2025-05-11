@@ -1,5 +1,7 @@
+import { useEffect } from "react";
 import KeypadButton from "../../../components/keypad-button";
 import { useCalculator } from "../../../store/calculator/calculator";
+import { keyboardClickHandler } from "../helpers";
 
 const Keyboard = () => {
   const { inputDigit, inputOperator, evaluate, clear, deleteDigit } =
@@ -36,13 +38,20 @@ const Keyboard = () => {
       { label: ".", value: "." },
       { label: "0", value: "0" },
       { label: "/", value: "/" },
-      { label: "x", value: "*", display: "x" }, // display "x", use "*"
+      { label: "x", value: "*" },
     ],
   ];
 
+  useEffect(() => {
+    const eventHandler = (e) =>
+      keyboardClickHandler(e, handleClick, deleteDigit, evaluate, clear);
+    window.addEventListener("keydown", eventHandler);
+    return () => window.removeEventListener("keydown", eventHandler);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <div className="grid grid-cols-4 grid-rows-5 gap-4 w-full bg-foreground p-6 rounded-lg">
-      {itemsGrid.flat().map(({ label, value, display, action, variant }) => (
+      {itemsGrid.flat().map(({ label, value, action, variant }) => (
         <KeypadButton
           key={label}
           variant={variant}
@@ -51,7 +60,7 @@ const Keyboard = () => {
             else handleClick(value);
           }}
         >
-          {display || label}
+          {label}
         </KeypadButton>
       ))}
       <div className="col-span-2">

@@ -7,7 +7,9 @@ const Screen = () => {
       <div className="text-sm opacity-50 overflow-x-scroll max-w-full whitespace-nowrap scrollbar-h-0 pb-4">
         {allOperations}
       </div>
-      <div className="text-bold text-[48px]">{result}</div>
+      <div className="text-bold text-[48px] overflow-x-scroll max-w-full whitespace-nowrap scrollbar-h-0">
+        {result}
+      </div>
     </div>
   );
 };
