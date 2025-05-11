@@ -1,4 +1,5 @@
 import Header from "./widgets/header";
+import History from "./widgets/history";
 import Keyboard from "./widgets/keyboard";
 import Screen from "./widgets/screen";
 

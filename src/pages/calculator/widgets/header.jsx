@@ -1,4 +1,5 @@
 import ThemeChanger from "../../../components/theme-changer";
+import History from "./history";
 
 const Header = () => {
   return (
@@ -7,6 +8,7 @@ const Header = () => {
       <div className="flex items-center gap-4">
         <span className="text-xs -mb-3">THEME</span>
         <ThemeChanger />
+        <History />
       </div>
     </div>
   );

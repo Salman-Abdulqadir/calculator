@@ -1,3 +1,5 @@
+import { cn } from "../lib/helpers";
+
 const KeypadButton = ({ variant, ...buttonProps }) => {
   const commonStyles =
     "w-full rounded-lg text-lg transition duration-200 ease-in-out p-1 cursor-pointer text-[24px] md:text-[32px]";
@@ -13,7 +15,7 @@ const KeypadButton = ({ variant, ...buttonProps }) => {
 
   return (
     <button
-      className={[commonStyles, variantClass, buttonProps.className].join(" ")}
+      className={cn(commonStyles, variantClass, buttonProps.className)}
       {...buttonProps}
     />
   );

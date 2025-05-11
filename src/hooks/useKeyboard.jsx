@@ -17,8 +17,7 @@ const useKeyboard = ({ handleClick }) => {
   useEffect(() => {
     const eventHandler = (e) => {
       const key = e.key;
-
-      if (!isNaN(key) || key === ".") {
+      if ((key !== " " && !isNaN(key)) || key === ".") {
         handleClick(key);
       } else if (OPERATORS.includes(key)) {
         handleClick(key);

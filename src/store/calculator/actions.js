@@ -1,3 +1,4 @@
+import { HistoryStorageService } from "../../services/history-storage";
 import { INITIAL_STATE, OPERATORS, ZERO, DECIMAL_POINT } from "./constants";
 
 /**
@@ -103,6 +104,7 @@ export const evaluate = (set, get) => {
   const { allOperations } = get();
 
   const computed = calculate(allOperations);
+  HistoryStorageService.addHistory(allOperations, computed);
   set({
     result: computed,
     allOperations: computed,
@@ -136,4 +138,18 @@ export const deleteDigit = (set, get) => {
         )
       : INITIAL_STATE.result,
   }));
+};
+
+export const toggleHistoryDrawer = (isOpen, set) => {
+  set(() => ({ isHistoryOpen: isOpen }));
+};
+
+export const setHistory = (set) => {
+  const history = HistoryStorageService.getHistory();
+  set(() => ({ history }));
+};
+
+export const clearHistory = (set) => {
+  HistoryStorageService.clearHistory();
+  set(() => ({ history: [] }));
 };
