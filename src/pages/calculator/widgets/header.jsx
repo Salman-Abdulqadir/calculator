@@ -1,4 +1,3 @@
-import React from "react";
 import ThemeChanger from "../../../components/theme-changer";
 
 const Header = () => {

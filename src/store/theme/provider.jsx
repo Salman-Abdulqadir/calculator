@@ -1,12 +1,9 @@
-import { useState, useEffect } from "react";
-import { ThemeContext } from "./context";
+import { useEffect } from "react";
 
-const THEME_STORAGE_KEY = "CALCULATOR_THEME";
+import { THEME_STORAGE_KEY, useTheme } from "./theme";
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState(
-    localStorage.getItem(THEME_STORAGE_KEY) || "theme-1"
-  );
+  const { theme } = useTheme();
   useEffect(() => {
     const root = document.documentElement;
     root.classList.remove("theme-1", "theme-2", "theme-3");
@@ -14,9 +11,5 @@ export const ThemeProvider = ({ children }) => {
     localStorage.setItem(THEME_STORAGE_KEY, theme);
   }, [theme]);
 
-  return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
-      {children}
-    </ThemeContext.Provider>
-  );
+  return <>{children}</>;
 };

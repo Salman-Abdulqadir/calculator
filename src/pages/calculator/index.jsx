@@ -4,7 +4,7 @@ import Screen from "./widgets/screen";
 
 const Calculator = () => {
   return (
-    <main className="min-h-screen w-full flex flex-col justify-center items-center">
+    <main className="min-h-screen w-full flex flex-col justify-center items-center p-4">
       <section className="w-full max-w-[500px] space-y-3">
         <Header />
         <Screen />
